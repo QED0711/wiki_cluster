@@ -1,2 +1,4 @@
+# All required Files
 require './lib/scraper'
-require './lib/cluster_node'
+require './lib/node'
+require './lib/cli'

@@ -2,7 +2,4 @@
 
 require './lib/environment.rb'
 
-root = Node.new('https://en.wikipedia.org/wiki/Late_Middle_Ages')
-
-root.get_links
-root.create_node_cluster
+WikiCluster::CLI.run

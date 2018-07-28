@@ -15,7 +15,7 @@ class Scraper
     links = doc.css("p a")
     links.each do |link|
       href = link.attr("href")
-      if href && href.include?("/wiki/") && !href.include?("Wikipedia:")
+      if href && href.include?("/wiki/") && !href.include?(":")
         valid_links << link.attr("href")
       end
     end
