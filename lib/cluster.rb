@@ -1,20 +1,38 @@
 class Cluster
 
 
-  def self.frequency_hash
-    node_count = {}
-    Node.all.each do |node|
-      node.links.each do |link|
-        if node_count.key?(link.to_sym)
-          node_count[link.to_sym] += 1
-        else
-          node_count[link.to_sym] = 1
-        end
-      end
-    end
-    # the below line sorts the hash in reverse order
-    # puts each key value pair into an individual array
-    puts node_count.sort_by { |key, value| value} [-1]
-  end
+   def self.frequency_hash
+     node_count = {}
+     Node.all.each do |node|
+       node.links.each do |link|
+         if node_count.key?(link)
+           node_count[link] += 1
+         else
+           node_count[link] = 1
+         end
+       end
+     end
+     # the below line sorts the hash in reverse order
+     # each key value pair goes into an individual array
+     node_count.sort_by { |key, value| value}.reverse
+   end
 
-end
+   def self.most_frequent
+     top_links = []
+     index = 0
+     hash = Cluster.frequency_hash
+     (0..10).each do |i|
+       top_links << hash[i]
+       index = i
+     end
+
+     while top_links[-1][1] == hash[index][1] && top_links[-1][0] != hash[index][0]
+       top_links << hash[index]
+       index += 1
+     end
+
+     top_links
+
+   end
+
+ end
