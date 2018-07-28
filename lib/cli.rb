@@ -29,38 +29,39 @@ module WikiCluster
         # Prints the top ten links to the terminal, and indicates how many times that link was found in the cluster
         most_frequent.each.with_index {|link, index| puts "#{index + 1}. https://en.wikipedia.org#{link[0]}\n   Linked #{link[1]} times in associated articles \n\n"}
 
-        input = nil
-        while input != "exit"
-        # prompts the user to click a link and be redirected to the article, indicate a link index and start the process over from there, or exit the program.
-          puts "-Click one of the links above to be redirected to the relevant Wikipedia artice."
-          puts "-type '[index number]-details' to see a summary of the wikipedia article contents (e.g. 1-details). "
-          puts "-Type the index number to re-run the program using that link as a starting point."
-          puts "-Type 'exit' to close the program."
+        # prompts the user to choose what to do next (see method below). uses the most_frequent variable as the data set
+        CLI.ask_user(most_frequent)
 
-          input = gets.chomp
+    end
 
-          case true
-            when input.include?("details")
-                index = input.split("-details")[0]
-                link = "https://en.wikipedia.org" + most_frequent[index.to_i - 1][0]
-                contents = Scraper.summary(link)
-                puts "\n\nTitle: #{link.split("wiki/")[1]}\n\n"
-                puts "Link: #{link}\n\n"
-                puts "Contents:\n\n"
-                contents.each { |text| puts "    - #{text}"}
-                puts "\n\n"
-            when input.to_i != 0
-                puts "\n ============================= \n\n"
-                puts "https://en.wikipedia.org" + most_frequent[input.to_i - 1][0]
-                CLI.run("https://en.wikipedia.org" + most_frequent[input.to_i - 1][0])
-            when input == "exit"
-              break
-          end
+    def self.ask_user(results)
+      # prompts the user to click a link and be redirected to the article, indicate a link index and start the process over from there, or exit the program.
+        puts "- Click one of the links above to be redirected to the relevant Wikipedia artice."
+        puts "- type '[index number]-details' to see a summary of the wikipedia article contents (e.g. 1-details). "
+        puts "- Type the index number to re-run the program using that link as a starting point."
+        puts "- Type 'exit' to close the program."
+
+        input = gets.chomp
+
+        case true
+          when input.include?("details")
+              index = input.split("-details")[0]
+              link = "https://en.wikipedia.org" + results[index.to_i - 1][0]
+              contents = Scraper.summary(link)
+              puts "\n\nTitle: #{link.split("wiki/")[1]}\n\n"
+              puts "Link: #{link}\n\n"
+              puts "Contents:\n\n"
+              contents.each { |text| puts "    - #{text}"}
+              puts "\n\n"
+              CLI.ask_user(results)
+          when input.to_i != 0
+              puts "\n ============================= \n\n"
+              puts "https://en.wikipedia.org" + results[input.to_i - 1][0]
+              CLI.run("https://en.wikipedia.org" + results[input.to_i - 1][0])
+          when input == "exit"
+            # do nothing and exit the program
         end
-
-
       end
-
     end
 
 
