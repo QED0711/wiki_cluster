@@ -9,14 +9,13 @@ class Scraper
   end
 
   def links_from_node
-
     valid_links = []
     html = open(@url)
     doc = Nokogiri::HTML(html)
     links = doc.css("p a")
     links.each do |link|
-      str = link.attr("href")
-      if str.include?("/wiki/") && !str.include?("Wikipedia:")
+      href = link.attr("href")
+      if href && href.include?("/wiki/") && !href.include?("Wikipedia:")
         valid_links << link.attr("href")
       end
     end
@@ -24,3 +23,5 @@ class Scraper
   end
 
 end
+
+# puts Scraper.new("https://en.wikipedia.org/wiki/Americas").links_from_node

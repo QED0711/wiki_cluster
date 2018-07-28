@@ -1,23 +1,25 @@
-class Cluster_Node
+class Node
 
-  attr_accessor :url, :nodes
+  attr_accessor :url, :linkes
+
+  @@all = []
 
   def initialize(url)
     @url = url
-    @nodes = []
+    @linkes = []
   end
 
-  def get_nodes
-    scraper = Scraper.new(@url)
-    self.nodes = scraper.links_from_node
+  def get_links
+    self.linkes = Scraper.new(@url).links_from_node
   end
 
-  def print_nodes
-    puts self.nodes
+  def print_linkes
+    puts self.linkes
   end
 
   def create_node_cluster
-    self.nodes.each do |node|
+    self.linkes.each do |node|
+      puts node
       puts Scraper.new("https://en.wikipedia.org" + node).links_from_node.count
     end
   end
