@@ -2,4 +2,7 @@
 
 require './lib/environment.rb'
 
-Scraper.links_from_root
+root = Cluster_Node.new('https://en.wikipedia.org/wiki/Late_Middle_Ages')
+
+root.get_nodes
+root.create_node_cluster

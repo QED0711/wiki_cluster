@@ -3,12 +3,16 @@ require 'nokogiri'
 require 'open-uri'
 
 class Scraper
-  # CALENDAR = "https://theclarice.umd.edu/calendar"
-  def self.links_from_root
+
+  def initialize(url)
+    @url = url
+  end
+
+  def links_from_node
+
     valid_links = []
-    html = open("https://en.wikipedia.org/wiki/Late_Middle_Ages")
+    html = open(@url)
     doc = Nokogiri::HTML(html)
-    # puts doc
     links = doc.css("p a")
     links.each do |link|
       str = link.attr("href")
@@ -16,7 +20,7 @@ class Scraper
         valid_links << link.attr("href")
       end
     end
-    puts valid_links
+    valid_links
   end
 
 end
