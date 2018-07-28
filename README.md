@@ -31,6 +31,12 @@ The gem will scrape all the links from the provided url, and then all the links 
     $ https://wn.wikipedia.org/wiki/Linux
     $ Linked 43 times in associated articles
 
+The user may click on any of the returned links to read the article directly. Alternatively, they my request details about a specified link, and read a summary of the contents in the CLI.
+
+Users can also start a new relevance search from any of the returned links by simply typing the index of the link they wish to scrape.
+
+NOTE: Because this gem has to load and parse several pages, sometime hundreds, pages with many links may take up to a minutes to scrape and find relevant articles.  
+
 ## Development
 
 After checking out the repo, run `bin/setup` to install dependencies. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
