@@ -12,7 +12,9 @@ class Cluster
         end
       end
     end
-    node_count.sort_by { |key, value| value}
+    # the below line sorts the hash in reverse order
+    # puts each key value pair into an individual array
+    puts node_count.sort_by { |key, value| value} [-1]
   end
 
 end
