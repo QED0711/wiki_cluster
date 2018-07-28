@@ -1,8 +1,8 @@
 # WikiCluster
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/wiki_cluster`. To experiment with that code, run `bin/console` for an interactive prompt.
+Welcome to the Wiki-Cluster Gem!
 
-TODO: Delete this and the text above, and describe your gem
+This gem allows users to quickly identify the most relevant topics related to any Wikipedia entry. The user only needs to provide a Wikipedia article as an entry point, and the gem will do the rest!    
 
 ## Installation
 
@@ -22,7 +22,13 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+The user provides a link to any Wikipedia article. e.g.
+
+    $  https://en.wikipedia.org/wiki/Git
+
+The gem will scrape all the links from the provided url, and then all the links from each of those urls. the gem checks the frequency with which these links appeared, and returns the ones that occured the most. Links are returned in the following format:
+
+
 
 ## Development
 
