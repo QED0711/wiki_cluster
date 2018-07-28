@@ -12,8 +12,6 @@ class Cluster
          end
        end
      end
-     # the below line sorts the hash in reverse order
-     # each key value pair goes into an individual array
      node_count.sort_by { |key, value| value}.reverse
    end
 
@@ -21,7 +19,7 @@ class Cluster
      top_links = []
      index = 0
      hash = Cluster.frequency_hash
-     (0..10).each do |i|
+     (0..9).each do |i|
        top_links << hash[i]
        index = i
      end
