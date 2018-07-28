@@ -7,4 +7,5 @@ Specs:
 - [x] Pull data from an external source
 -- Pulls all links from the main body of a wikipedia article, and goes one level deeper into each link to pull. Creates a hash of the most linked articles from a given starting point.  
 
-- [ ] Implement both list and detail views
+- [x] Implement both list and detail views
+-- user is given a list of the top ten related links to a wikipedia site. User can then request a summary of any of the returned articles by typing '<index number>-details'
