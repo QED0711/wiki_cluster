@@ -13,6 +13,7 @@ class Node
   def self.all
     @@all
   end
+
   #
   # def get_links
   #   self.links = Scraper.new(@url).links_from_node
