@@ -28,7 +28,8 @@ The user provides a link to any Wikipedia article. e.g.
 
 The gem will scrape all the links from the provided url, and then all the links from each of those urls. the gem checks the frequency with which these links appeared, and returns the ones that occured the most. Links are returned in the following format:
 
-
+    $ https://wn.wikipedia.org/wiki/Linux
+    $ Linked 43 times in associated articles
 
 ## Development
 
