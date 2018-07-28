@@ -9,9 +9,9 @@
          Node.new('https://en.wikipedia.org' + link)
        end
 
-       Cluster.frequency
-      #  counter = 0
-      #  Node.all.each {|node| puts "#{counter+= 1} : #{node.links}"}
+       count = Cluster.frequency_hash
+       puts count
+
      end
 
    end
