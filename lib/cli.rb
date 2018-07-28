@@ -31,15 +31,28 @@ module WikiCluster
 
         # prompts the user to click a link and be redirected to the article, indicate a link index and start the process over from there, or exit the program.
         puts "Click one of the links above to be redirected to the relevant Wikipedia artice."
+        puts "Enter '[index number]-details' to see a summary of the wikipedia article contents (e.g. 1-details). "
         puts "Enter the index number to re-run the program using that link as a starting point."
-        puts "(press ENTER/RETURN to exit)"
+        puts "Type 'exit' to close the program."
 
         input = gets.chomp
-        if input != ""
-          puts "\n ============================= \n\n"
-          puts "https://en.wikipedia.org" + most_frequent[input.to_i - 1][0]
-          CLI.run("https://en.wikipedia.org" + most_frequent[input.to_i - 1][0])
+
+        case true
+        when input.include?("details")
+            index = input.split("-details")[0]
+            link = "https://en.wikipedia.org" + most_frequent[index.to_i - 1][0]
+            contents = Scraper.summary(link)
+            puts link.split("wiki/")[1]
+            puts link
+            contents.each { |text| puts "- #{text}"}
+        when input.match(/^\d+$/)
+            puts "\n ============================= \n\n"
+            puts "https://en.wikipedia.org" + most_frequent[input.to_i - 1][0]
+            CLI.run("https://en.wikipedia.org" + most_frequent[input.to_i - 1][0])
+        # when input == "exit"
+
         end
+
 
       end
 
