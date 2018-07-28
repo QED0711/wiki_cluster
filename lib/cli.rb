@@ -27,10 +27,12 @@ module WikiCluster
         puts "\n ============================= \n\n"
 
         # Prints the top ten links to the terminal, and indicates how many times that link was found in the cluster
-        most_frequent.each.with_index {|link, index| puts "#{index + 1}. Linked #{link[1]} times in associated articles: https://en.wikipedia.org#{link[0]}\n\n"}
+        most_frequent.each.with_index {|link, index| puts "#{index + 1}. https://en.wikipedia.org#{link[0]}\n   Linked #{link[1]} times in associated articles \n\n"}
 
         # prompts the user to click a link and be redirected to the article, indicate a link index and start the process over from there, or exit the program.
-        puts "Click one of the links above, or enter the associated number to re-run the program using that link as a starting point. (press ENTER/RETURN to exit)"
+        puts "Click one of the links above to be redirected to the relevant Wikipedia artice."
+        puts "Enter the index number to re-run the program using that link as a starting point."
+        puts "(press ENTER/RETURN to exit)"
 
         input = gets.chomp
         if input != ""
