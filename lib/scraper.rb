@@ -23,5 +23,3 @@ class Scraper
   end
 
 end
-
-# puts Scraper.new("https://en.wikipedia.org/wiki/Americas").links_from_node

@@ -1,6 +1,5 @@
 class Cluster
 
-
    def self.frequency_hash
      node_count = {}
      Node.all.each do |node|
