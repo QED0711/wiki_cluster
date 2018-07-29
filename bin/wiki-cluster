@@ -2,4 +2,4 @@
 
 require './lib/environment.rb'
 
-WikiCluster::CLI.run
+CLI.run
