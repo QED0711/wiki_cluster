@@ -39,7 +39,7 @@ def self.ask_user(results)
     puts "- Click one of the links above to be redirected to the relevant Wikipedia artice."
     puts "- type '[index number]-details' to see a summary of the wikipedia article contents (e.g. 1-details). "
     puts "- Type the index number to re-run the program using that link as a starting point."
-    puts "- Type 'exit' to close the program."
+    puts "- Press [Enter]/[Return] to exit."
 
     input = gets.chomp
 
@@ -58,8 +58,6 @@ def self.ask_user(results)
           puts "\n ============================= \n\n"
           puts "https://en.wikipedia.org" + results[input.to_i - 1][0]
           CLI.run("https://en.wikipedia.org" + results[input.to_i - 1][0])
-      when input == "exit"
-        # do nothing and exit the program
     end
   end
 end
