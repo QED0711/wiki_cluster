@@ -14,21 +14,11 @@ class Cluster
      node_count.sort_by { |key, value| value}.reverse
    end
 
-   def self.most_frequent
-     top_links = []
-     index = 0
+   def self.top_ten_links
      hash = Cluster.frequency_hash
-     (0..9).each do |i|
-       top_links << hash[i]
-       index = i
+     (0..9).map do |i|
+       hash[i]
      end
-
-     while top_links[-1][1] == hash[index][1] && top_links[-1][0] != hash[index][0]
-       top_links << hash[index]
-       index += 1
-     end
-
-     top_links
 
    end
 

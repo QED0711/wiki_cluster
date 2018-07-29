@@ -23,7 +23,7 @@ module WikiCluster
 
         # counts the number of times each link appeared in the cluster of scraped links, and sorts them from most to least prevalent
         # returns the top ten results
-        most_frequent = Cluster.most_frequent
+        most_frequent = Cluster.top_ten_links
         puts "\n ============================= \n\n"
 
         # Prints the top ten links to the terminal, and indicates how many times that link was found in the cluster
