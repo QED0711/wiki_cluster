@@ -16,8 +16,8 @@ class Cluster
 
    def self.top_ten_links
      hash = Cluster.frequency_hash
-     (0..9).map do |i|
-       hash[i]
+     (0..9).map do |index|
+       hash[index]
      end
 
    end

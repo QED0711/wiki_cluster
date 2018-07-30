@@ -1,6 +1,7 @@
 class Node
 
-  attr_accessor :url, :links
+  attr_writer :url 
+  attr_reader :links
 
   @@all = []
 
