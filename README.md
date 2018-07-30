@@ -6,19 +6,12 @@ This gem allows users to quickly identify the most relevant topics related to an
 
 ## Installation
 
-Add this line to your application's Gemfile:
+Fork and clone this repository.
 
-```ruby
-gem 'wiki_cluster'
-```
+cd into the repo, and run bundle install
 
-And then execute:
-
-    $ bundle
-
-Or install it yourself as:
-
-    $ gem install wiki_cluster
+    $ cd wiki_cluster-cli-app
+    $ bundle install 
 
 ## Usage
 
