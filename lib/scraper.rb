@@ -35,4 +35,3 @@ class Scraper
 
 end
 
-Scraper.summary("https://en.wikipedia.org/wiki/Medieval_music")
