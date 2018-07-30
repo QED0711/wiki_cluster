@@ -18,7 +18,9 @@ class CLI
 
     # For each link scraped from the base url, creates new Node instances and scrapes links from each of those.
     root.links.each do |link|
-      Node.new('https://en.wikipedia.org' + link)
+      if link
+        Node.new('https://en.wikipedia.org' + link)
+      end
     end
 
     # counts the number of times each link appeared in the cluster of scraped links, and sorts them from most to least prevalent
@@ -32,9 +34,9 @@ class CLI
     # prompts the user to choose what to do next (see method below). uses the most_frequent variable as the data set
     CLI.ask_user(most_frequent)
 
-end
+  end
 
-def self.ask_user(results)
+  def self.ask_user(results)
   # prompts the user to click a link and be redirected to the article, indicate a link index and start the process over from there, or exit the program.
     puts "- Click one of the links above to be redirected to the relevant Wikipedia artice."
     puts "- type '[index number]-details' to see a summary of the wikipedia article contents (e.g. 1-details). "

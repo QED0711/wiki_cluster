@@ -21,16 +21,15 @@ class Scraper
   end
 
   def links_from_node
-    valid_links = []
     doc = Nokogiri::HTML(@html)
     links = doc.css("p a")
-    links.each do |link|
+
+    links.map do |link|
       href = link.attr("href")
       if href && href.include?("/wiki/") && !href.include?(":") && !href.include?("#")
-        valid_links << link.attr("href")
+        href
       end
     end
-    valid_links
   end
 
 end

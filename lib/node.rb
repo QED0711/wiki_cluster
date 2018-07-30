@@ -7,6 +7,7 @@ class Node
 
   def initialize(url)
     @url = url
+    puts @url
     @links = Scraper.new(@url).links_from_node
     @@all << self
   end

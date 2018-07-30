@@ -2,12 +2,17 @@ class Cluster
 
    def self.frequency_hash
      node_count = {}
+
      Node.all.each do |node|
-       node.links.each do |link|
-         if node_count.key?(link)
+      node.links.each do |link|
+        if node_count.key?(link)
+
            node_count[link] += 1
+
          else
+
            node_count[link] = 1
+
          end
        end
      end
