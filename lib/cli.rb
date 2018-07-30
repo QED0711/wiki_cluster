@@ -49,11 +49,12 @@ class CLI
       when input.include?("details")
           index = input.split("-details")[0]
           link = "https://en.wikipedia.org" + results[index.to_i - 1][0]
-          contents = Scraper.summary(link)
+          contents = Scraper.new(link)
+          contents_text = contents.summary
           puts "\n\nTitle: #{link.split("wiki/")[1]}\n\n"
           puts "Link: #{link}\n\n"
           puts "Contents:\n\n"
-          contents.each { |text| puts "    - #{text}"}
+          contents_text.each { |text| puts "    - #{text}"}
           puts "\n\n"
           CLI.ask_user(results)
       when input.to_i != 0

@@ -3,21 +3,19 @@ require 'nokogiri'
 require 'open-uri'
 
 class Scraper
-  attr_accessor :url
+  attr_reader :html
+  
   def initialize(url)
-    @url = url
-    @html = open(@url)
+    @html = open(url)
   end
 
-  def self.summary(url)
-    contents = []
-    html = open(url)
-    doc = Nokogiri::HTML(html)
-    contents_text = doc.css("span.toctext")
-    contents_text.each do |element|
-      contents << element.text
+  def summary
+    doc = Nokogiri::HTML(@html)
+    contents = doc.css("span.toctext")
+
+    contents.collect do |section_heading|
+      section_heading.text
     end
-    contents
   end
 
   def links_from_node
