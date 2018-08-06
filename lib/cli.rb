@@ -18,7 +18,7 @@ class CLI
 
     # For each link scraped from the base url, creates new Node instances and scrapes links from each of those.
     root.links.each do |link|
-      if link
+      if link && link.length > 0
         Node.new('https://en.wikipedia.org' + link)
       end
     end

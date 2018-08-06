@@ -24,7 +24,7 @@ class Scraper
 
     links.map do |link|
       href = link.attr("href")
-      if href && href.include?("/wiki/") && !href.include?(":") && !href.include?("#")
+      if href && href.include?("/wiki/") && !href.include?(":") && !href.include?("#") && href != "https://en.wikipedia.org"
         href
       end
     end
