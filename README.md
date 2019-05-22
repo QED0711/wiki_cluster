@@ -14,7 +14,10 @@ cd into the repo, and run bundle install
     $ bundle install 
 
 ## Usage
-
+To run, cd into the directory and run the following:
+```
+    $ bin/wiki-cluster
+```
 The user provides a link to any Wikipedia article. e.g.
 
     $  https://en.wikipedia.org/wiki/Git
