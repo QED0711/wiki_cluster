@@ -1,4 +1,4 @@
-# WikiCluster
+# Wiki Graph
 
 Welcome to the Wiki-Cluster Gem!
 
